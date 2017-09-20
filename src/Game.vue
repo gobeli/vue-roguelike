@@ -1,26 +1,28 @@
 <template>
-  <rogue-map :map="map" :player="player" sight="7"></rogue-map>
+  <rogue-map :sight="7"></rogue-map>
 </template>
 
 <script>
-import { generateMap, placeObject, placeObjects } from './map';
+import Map from './map';
 import { items } from './constants';
+import Player from './models/Player';
+import Health from './models/Health';
+import Enemy from './models/Enemy';
 
 export default {
-  name: 'app',
-  data () {
-    return {
-      map: generateMap(75),
-      player: null
-    }
-  },
+  name: 'game',
   created() {
+    const map = new Map(75);
     // create player
-    this.player = placeObject(this.map, items.PLAYER);
+    let player = new Player();
+    player = map.placeObject(player);
+    this.$store.commit('SET_PLAYER', player);
     // create health
-    placeObjects(this.map, items.HEALTH, 10);
+    Array(...Array(10)).map(_ => new Health()).forEach(h => map.placeObject(h));
     // create enemies
-    placeObjects(this.map, items.ENEMY, 10);
+    Array(...Array(10)).map(_ => new Enemy(10, 20)).forEach(e => map.placeObject(e));
+
+    this.$store.commit('SET_MAP', map);
   }
 }
 </script>

@@ -1,17 +1,13 @@
 export default class Room {
+  get center() {
+    return { x: Math.floor((this.x1 + this.x2) / 2), y: Math.floor((this.y1 + this.y2) / 2)};
+  }
+
   constructor(x, y, w, h) {
     this.x1 = x;
     this.x2 = x + w;
     this.y1 = y;
     this.y2 = y + h;
-  }
-
-  draw(map) {
-    for (let x = this.x1; x <= this.x2; x++) {
-      for (let y = this.y1; y <= this.y2; y++) {
-          map[x][y] = 0;
-      }
-    }
   }
 
   intersects(room) {

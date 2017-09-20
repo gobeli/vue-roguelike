@@ -1,31 +1,27 @@
 <template>
   <div class="map">
-    <ul class="row" v-for="(row, index) in map" :key="index">
-      <li class="item" v-for="(item, i) in row" :key="i" :class="getClass(item, index, i)"></li>
+    <ul class="row" v-for="(row, index) in mapArr" :key="index">
+      <li class="item" v-for="(item, i) in row" :key="i" :class="getClass(item)"></li>
     </ul>
   </div>
 </template>
 <script>
+  import { mapGetters } from 'vuex'
   import { itemClasses, items } from './constants';
   export default {
     props: {
-      map: {
-        type: Array,
-        required: true
-      },
-      player: {
-        type: Object,
-        required: true
-      },
       sight: {
         type: Number,
         required: true
       }
     },
+    computed: mapGetters([
+      'mapArr'
+    ]),
     methods: {
-      getClass(index, x, y) {
-        let className = itemClasses[index];
-        const diffX = this.player.x - x, diffY = this.player.y - y;
+      getClass(obj) {
+        let className = itemClasses[obj.id];
+        const diffX = this.$store.state.player.x - obj.x, diffY = this.$store.state.player.y - obj.y;
         if (Math.abs(diffX) > this.sight || Math.abs(diffY) > this.sight) {
           className += ' dark';
         } else if (Math.sqrt(Math.pow(diffX, 2) + Math.pow(diffY, 2)) >= this.sight) {
@@ -53,7 +49,7 @@
       height: $pixel-size;
     }
     .wall {
-      background-color: #777;      
+      background-color: #777;
     }
     .empty {
       background-color: #AAA;

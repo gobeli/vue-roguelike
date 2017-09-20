@@ -1,4 +1,4 @@
-import Item from './Item'; 
+import Item from './Item';
 import { levels, weapons } from '../constants';
 
 export default class Player extends Item {

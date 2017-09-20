@@ -1,8 +1,9 @@
 import Item from './Item';
 
 export default class Health extends Item {
-  constructor() {
+  constructor(strength, health) {
     super(3);
-    this.amount = 20;
+    this.strength = strength;
+    this.health = health;
   }
 }

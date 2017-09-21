@@ -4,7 +4,7 @@ import { levels, weapons } from '../constants';
 export default class Player extends Item {
   constructor() {
     super(2);
-    this.health = 0;
+    this.health = 100;
     this.level = levels[0];
     this.weapon = weapons[0];
     this.xp = 0;

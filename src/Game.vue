@@ -1,7 +1,9 @@
 <template>
-  <div>
+  <div class="game" :style="{ 'background-color': $store.state.darkness ? '#333' : '#777'  }">
     <rogue-player></rogue-player>
-    <rogue-map :sight="7"></rogue-map>
+    <div class="map-container">
+      <rogue-map :sight="7"></rogue-map>
+    </div>
   </div>
 </template>
 
@@ -50,3 +52,18 @@ export default {
   }
 }
 </script>
+<style lang="scss">
+  body, html {
+    height: 100%;
+    margin: 0;
+    font-family: sans-serif;
+  }
+  .game {
+    background-color: #777;
+    min-height: 100%;
+  }
+  .map-container {
+    display: flex;
+    justify-content: center;
+  }
+</style>

@@ -8,10 +8,14 @@ Vue.use(Vuex);
 
 const state = {
   player: new Player(0, 0),
-  map: []
+  map: [],
+  darkness: true
 };
 
 const mutations = {
+  SET_DARKNESS(state, payload) {
+    state.darkness = payload;
+  },
   SET_PLAYER(state, payload) {
     state.player = payload;
   },

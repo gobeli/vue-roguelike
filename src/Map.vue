@@ -22,9 +22,9 @@
       getClass(obj) {
         let className = itemClasses[obj.id];
         const diffX = this.$store.state.player.x - obj.x, diffY = this.$store.state.player.y - obj.y;
-        if (Math.abs(diffX) > this.sight || Math.abs(diffY) > this.sight) {
+        if ((Math.abs(diffX) > this.sight || Math.abs(diffY) > this.sight) && this.$store.state.darkness) {
           className += ' dark';
-        } else if (Math.sqrt(Math.pow(diffX, 2) + Math.pow(diffY, 2)) >= this.sight) {
+        } else if (Math.sqrt(Math.pow(diffX, 2) + Math.pow(diffY, 2)) >= this.sight && this.$store.state.darkness) {
           className += ' dark';
         }
         return className;

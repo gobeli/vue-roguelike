@@ -1,9 +1,10 @@
 import Item from './Item';
 
 export default class Enemy extends Item {
-  constructor(strength, health) {
+  constructor(attack, health, xp) {
     super(5);
-    this.strength = strength;
+    this.attack = attack;
     this.health = health;
+    this.xp = xp;
   }
 }

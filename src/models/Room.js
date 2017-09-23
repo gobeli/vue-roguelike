@@ -1,9 +1,12 @@
-export default class Room {
+import Item from './Item';
+
+export default class Room extends Item {
   get center() {
     return { x: Math.floor((this.x1 + this.x2) / 2), y: Math.floor((this.y1 + this.y2) / 2)};
   }
 
   constructor(x, y, w, h) {
+    super(0);
     this.x1 = x;
     this.x2 = x + w;
     this.y1 = y;

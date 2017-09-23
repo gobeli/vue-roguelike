@@ -5,18 +5,21 @@ export default class Player extends Item {
   constructor() {
     super(2);
     this.health = 100;
-    this.level = levels[0];
     this.weapon = weapons[0];
     this.xp = 0;
+    this._level = 0;
   }
 
-  get nextLevel() {
+  get level() {
     // index of the next level equals the level of the current
-    let nextLevel = levels[this.level + 1];
+    let nextLevel = levels[this._level + 1];
     if (this.xp > nextLevel) {
-      this.level++;
-      nextLevel = levels[nextLevel + 1];
+      this._level++;
     }
-    return nextLevel - this.xp
+    return this._level;
+  }
+
+  set level(value) {
+    this._level = value;
   }
 }

@@ -2,13 +2,15 @@ import Weapon from './models/Weapon';
 import Room from './models/Room';
 
 export const levels = [
-  60, 140, 250, 390, 999999
+  0, 50, 110, 180, 250, 999999
 ]
 
 export const weapons = [
   new Weapon('Stick', 7),
-  new Weapon('Speer', 13),
-  new Weapon('Sword', 22),
+  new Weapon('Speer', 12),
+  new Weapon('Sword', 18),
+  new Weapon('Katana', 24),
+  new Weapon('Morning start', 30),
 ]
 
 export const items = {
@@ -17,9 +19,10 @@ export const items = {
   PLAYER: 2,
   HEALTH: 3,
   WEAPON: 4,
-  ENEMY: 5
+  ENEMY: 5,
+  PORTAL: 6
 }
 
 export const itemClasses = [
-  'empty', 'wall', 'player', 'health', 'weapon', 'enemy'
+  'empty', 'wall', 'player', 'health', 'weapon', 'enemy', 'portal'
 ]

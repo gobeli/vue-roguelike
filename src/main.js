@@ -6,6 +6,7 @@ import store from './store/store';
 
 Vue.component('rogue-map', Map);
 Vue.component('rogue-player', Player);
+this.$bus = new Vue();
 
 new Vue({
   el: '#app',

@@ -38,6 +38,8 @@
   .map {
     margin: 1rem;
     overflow-x: visible;
+    white-space: nowrap;
+
   }
   .row {
     margin: 0;
@@ -62,6 +64,12 @@
     }
     .enemy {
       background-color: firebrick;
+    }
+    .weapon {
+      background-color: orange;
+    }
+    .portal {
+      background-color: darkviolet;
     }
     .dark {
       background-color: #333;

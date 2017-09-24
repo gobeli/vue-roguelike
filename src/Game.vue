@@ -41,7 +41,7 @@ export default {
 
       // create player
       if (this.$store.state.dungeon === 0) {
-        let player = new Player();
+        const player = new Player();
         this.$store.commit('SET_PLAYER', player);
       }
       map.placeObject(this.$store.state.player);
@@ -69,7 +69,7 @@ export default {
       if (this.$store.state.lost) {
         return;
       }
-      switch(e.keyCode) {
+      switch (e.keyCode) {
         case 39:
           this.moveRight();
           break;
@@ -86,9 +86,9 @@ export default {
     again() {
       this.tryAgain();
       this.init();
-    }
-  }
-}
+    },
+  },
+};
 </script>
 <style lang="scss">
   body, html {

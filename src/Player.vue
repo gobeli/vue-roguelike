@@ -37,9 +37,9 @@
     methods: {
       toggleDarkness() {
         this.$store.commit('SET_DARKNESS', !this.$store.state.darkness);
-      }
-    }
-  }
+      },
+    },
+  };
 </script>
 <style lang="scss">
   .title {

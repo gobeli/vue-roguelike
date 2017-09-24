@@ -6,31 +6,33 @@
   </div>
 </template>
 <script>
-  import { mapGetters } from 'vuex'
+  import { mapGetters } from 'vuex';
   import { itemClasses, items } from './constants';
+
   export default {
     props: {
       sight: {
         type: Number,
-        required: true
-      }
+        required: true,
+      },
     },
     computed: mapGetters([
-      'mapArr'
+      'mapArr',
     ]),
     methods: {
       getClass(obj) {
         let className = itemClasses[obj.id];
-        const diffX = this.$store.state.player.x - obj.x, diffY = this.$store.state.player.y - obj.y;
+        const diffX = this.$store.state.player.x - obj.x,
+          diffY = this.$store.state.player.y - obj.y;
         if ((Math.abs(diffX) > this.sight || Math.abs(diffY) > this.sight) && this.$store.state.darkness) {
           className += ' dark';
         } else if (Math.sqrt(Math.pow(diffX, 2) + Math.pow(diffY, 2)) >= this.sight && this.$store.state.darkness) {
           className += ' dark';
         }
         return className;
-      }
-    }
-  }
+      },
+    },
+  };
 </script>
 <style lang="scss">
   $pixel-size: 10px;

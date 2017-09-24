@@ -2,7 +2,7 @@ import Item from './Item';
 
 export default class Room extends Item {
   get center() {
-    return { x: Math.floor((this.x1 + this.x2) / 2), y: Math.floor((this.y1 + this.y2) / 2)};
+    return { x: Math.floor((this.x1 + this.x2) / 2), y: Math.floor((this.y1 + this.y2) / 2) };
   }
 
   constructor(x, y, w, h) {

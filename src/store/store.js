@@ -1,9 +1,10 @@
 import Vue from 'vue';
-import Vuex from 'vuex'
+import Vuex from 'vuex';
 
 import Player from '../models/Player';
 import Item from '../models/Item';
 import { items } from '../constants';
+
 Vue.use(Vuex);
 
 const state = {
@@ -14,7 +15,7 @@ const state = {
   won: false,
   dungeon: 0,
   attackHistory: [],
-  healthHistory: []
+  healthHistory: [],
 };
 
 const mutations = {
@@ -78,37 +79,37 @@ const mutations = {
   },
   SET_MAP(state, payload) {
     state.map = payload;
-  }
+  },
 };
 
 const getters = {
   mapArr: state => state.map.map,
-  playerReference: state => state.map.map[state.player.x][state.player.y]
-}
+  playerReference: state => state.map.map[state.player.x][state.player.y],
+};
 
 const actions = {
-  moveRight({commit}) {
+  moveRight({ commit }) {
     commit('MOVE_PLAYER', [1, 0]);
   },
-  moveLeft({commit}) {
+  moveLeft({ commit }) {
     commit('MOVE_PLAYER', [-1, 0]);
   },
-  moveBottom({commit}) {
+  moveBottom({ commit }) {
     commit('MOVE_PLAYER', [0, 1]);
   },
-  moveTop({commit}) {
+  moveTop({ commit }) {
     commit('MOVE_PLAYER', [0, -1]);
   },
-  tryAgain({commit}) {
+  tryAgain({ commit }) {
     commit('SET_WON', false);
     commit('SET_LOST', false);
     commit('SET_DUNGEON', 0);
-  }
-}
+  },
+};
 
 export default new Vuex.Store({
   actions,
   getters,
   state,
-  mutations
+  mutations,
 });

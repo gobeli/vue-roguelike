@@ -11,5 +11,5 @@ this.$bus = new Vue();
 new Vue({
   el: '#app',
   store,
-  render: h => h(Game)
+  render: h => h(Game),
 });

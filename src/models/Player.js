@@ -12,7 +12,7 @@ export default class Player extends Item {
 
   get level() {
     // index of the next level equals the level of the current
-    let nextLevel = levels[this._level + 1];
+    const nextLevel = levels[this._level + 1];
     if (this.xp > nextLevel) {
       this._level++;
     }

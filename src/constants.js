@@ -9,7 +9,7 @@ export const weapons = [
   new Weapon('Speer', 12),
   new Weapon('Sword', 18),
   new Weapon('Katana', 24),
-  new Weapon('Morning start', 30),
+  new Weapon('Morning star', 30),
 ];
 
 export const items = {
